@@ -4,21 +4,10 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
-
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-    background(255);
+  createCanvas(windowWidth, windowHeight);
+  img = loadImage("assets/yeet.png");  // Load the image
 }
-
 function draw() {
-  fill(255,0,0)
-  if (mouseIsPressed && keyCode === 69)
-    ellipse(mouseX, mouseY, 30, 30)
-  if (mouseIsPressed && keyCode === 82)
-    rect(mouseX, mouseY, 30, 30)
-  if (keyCode === 87)
-	background(255)
-  if (keyCode === 66)
-    background(0)
-
+  image(img, windowWidth/2, windowHeight/2)
 }

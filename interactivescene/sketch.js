@@ -9,5 +9,5 @@ function setup() {
   img = loadImage("assets/yeet.png");  // Load the image
 }
 function draw() {
-  image(img, windowWidth/2, windowHeight/2)
+  image(img, mouseX-img.width/2, mouseY-img.height/2);
 }

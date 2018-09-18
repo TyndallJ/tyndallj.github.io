@@ -1,18 +1,40 @@
+// sanic Bounce
+//
+let sanic;
+let x,y;
+let dx, dy;
+function preload(){
+  sanic = loadImage("assets/yeet.png");
+
+}
 function setup() {
-  createCanvas(720, 400);
-  img = createImage(230, 230);
-  img.loadPixels();
-  for(var x = 0; x < img.width; x++) {
-    for(var y = 0; y < img.height; y++) {
-      var a = map(y, 0, img.height, 255, 0);
-      img.set(x, y, [0, 153, 204, a]);
-    }
-  }
-  img.updatePixels();
+  createCanvas(windowWidth, windowHeight);
+  x = windowWidth/2 - sanic.width/2;
+  y = windowHeight/2 - sanic.height/2;
+  dx = random(3,8)
+  dy = random(3,9)
 }
 
 function draw() {
-  background(0);
-  image(img, 90, 80);
-  image(img, mouseX-img.width/2, mouseY-img.height/2);
+  movesanic();
+  displaysanic();
+}
+
+function displaysanic(){
+  changecolor();
+  image(sanic, x, y);
+}
+
+function movesanic(){
+  x +=  dx;
+  y += dy;
+  if (y + sanic.height >= windowHeight || y <= 0){
+    dy = dy * -1;
+  }
+  if (x + sanic.width >= windowWidth || x <= 0){
+    dx = dx * -1;
+  }
+}
+function changecolor(){
+  background(random(1,255), random(1,255), random(1,255))
 }

@@ -13,7 +13,7 @@ function setup() {
 }
 
 function draw() {
-  background(255)
+  changecolor()
   image(ward, mouseX, mouseY, ward.width * scaler, ward.height * scaler);
 }
 function mouseWheel(event){
@@ -25,4 +25,7 @@ function mouseWheel(event){
   }
  console.log(event);
 
+}
+function changecolor(){
+  background(random(1,255), random(1,255), random(1,255))
 }

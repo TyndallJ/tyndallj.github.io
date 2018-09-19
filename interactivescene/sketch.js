@@ -5,6 +5,9 @@ let x,y;
 let dx, dy;
 function preload(){
   sanic = loadImage("assets/yeet.png");
+  soundFormats('mp3');
+  mySound = loadSound('assets/ADDHERE');
+  }
 
 }
 function setup() {

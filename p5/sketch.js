@@ -1,40 +1,28 @@
-// DVD Bounce
-//
-let dvd;
-let x,y;
-let dx, dy;
-function preload(){
-  dvd = loadImage("assets/dvd.png");
+let ward;
+let scaler;
 
+function preload(){
+  ward = loadImage("assets/tpose.png")
 }
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  x = windowWidth/2 - dvd.width/2;
-  y = windowHeight/2 - dvd.height/2;
-  dx = random(3,8)
-  dy = random(3,9)
+  imageMode(CENTER)
+  scaler = 0.5
 }
 
 function draw() {
-  movedvd();
-  displaydvd();
+  background(255)
+  image(ward, mouseX, mouseY, ward.width * scaler, ward.height * scaler);
 }
-
-function displaydvd(){
-  changecolor();
-  image(dvd, x, y);
-}
-
-function movedvd(){
-  x +=  dx;
-  y += dy;
-  if (y + dvd.height >= windowHeight || y <= 0){
-    dy = dy * -1;
+function mouseWheel(event){
+  if (event.delta > 0){
+    scaler *= 1.2;
   }
-  if (x + dvd.width >= windowWidth || x <= 0){
-    dx = dx * -1;
+  else {
+    scaler *= 0.8;
   }
-}
-function changecolor(){
-  background(random(1,255), random(1,255), random(1,255))
+ console.log(event);
+
 }

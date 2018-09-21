@@ -6,6 +6,8 @@ let dx, dy;
 let sanicsound;
 let changecolor;
 let value = 255;
+let value2 = 255;
+let value3 = 255;
 
 function preload(){
   sanic = loadImage("assets/yeet.png");
@@ -22,7 +24,7 @@ function setup() {
 
 function draw() {
   movesanic();
-  background(value);
+  background(value, value, value);
   displaysanic();
   }
 
@@ -42,4 +44,5 @@ function movesanic(){
 }
 function mousePressed(){
   value = random(255), random(255), random(255);
+
 }

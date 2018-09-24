@@ -1,48 +1,62 @@
-// sanic Bounce
-//
-let sanic;
+// Interactive Scene
+// Tyndall
+// 09/21/2018
 let x,y;
-let dx, dy;
+let spin;
+let dx,dy;
+let sanic;
 let sanicsound;
-let changecolor;
 let value = 255;
 let value2 = 255;
 let value3 = 255;
 
 function preload(){
   sanic = loadImage("assets/yeet.png");
-  sanicsound = loadSound('assets/sonic.mp3');
-  }
+  sanicsound = loadSound("assets/sonic.mp3");
+}
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  x = windowWidth/2 - sanic.width/2;
-  y = windowHeight/2 - sanic.height/2;
-  dx = random(3,8)
-  dy = random(3,9)
-  sanicsound.play()
+  x = width/2;
+  y = height/2;
+  dx = random(3,10);
+  dy = random(3,10);
+  spin = 0;
+  imageMode(CENTER);
 }
 
 function draw() {
-  movesanic();
-  background(value, value, value);
-  displaysanic();
-  }
+  background(value, value2, value3);
+  translate(x,y);
+  rotate(spin);
+  image(sanic, 0, 0);
 
-function displaysanic(){
-  image(sanic, x, y);
-}
-
-function movesanic(){
-  x +=  dx;
+  x += dx;
   y += dy;
-  if (y + sanic.height >= windowHeight || y <= 0){
-    dy = dy * -1;
+
+  if (x > width || x < 0){
+    dx *= -1;
   }
-  if (x + sanic.width >= windowWidth || x <= 0){
-    dx = dx * -1;
+  if (y > height || y < 0){
+    dy *= -1;
+  }
+
+  if (spin < PI*2){
+    spin += 0.1;
+  }
+  else{
+    spin = PI*2;
   }
 }
 function mousePressed(){
-  value = random(255), random(255), random(255);
-
+  spin = 0;
+}
+function keyPressed(){
+  value = random(255);
+  value2 = random(255);
+  value3 = random(255);
+}
+function mouseWheel(){
+  sanicsound.play();
 }

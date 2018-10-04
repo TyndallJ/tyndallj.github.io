@@ -8,6 +8,8 @@
 //Variables
 let img;
 let x,y;
+let backgroundWidth = 1600;
+let backgroundHeight = 1200;
 
 function preload() {
   img = loadImage("assets/selectcharacter.png");
@@ -15,10 +17,23 @@ function preload() {
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  image(img, 0, 0, windowWidth, windowHeight);
+  createCanvas(backgroundWidth, backgroundHeight);
+  image(img, 0, 0, backgroundWidth, backgroundHeight);
+  rect(119,315,322,380);
 }
 
 function draw() {
+  findCharacter();
+}
+
+
+
+function findCharacter(){
+  if (mouseX < 322 && mouseY < 380){
+    background(220);
+  }
+  else{
+    image(img, 0, 0, backgroundWidth, backgroundHeight);
+  }
 
 }

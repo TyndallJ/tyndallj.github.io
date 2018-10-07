@@ -60,4 +60,7 @@ function findCharacter(){
   else if (mouseX < width*0.926 && mouseX > width*0.73 && mouseY < height*0.93 && mouseY > height*0.60){
     image(border,1154,725,322,380);
   }
+  else{
+    image(img,0,0,backgroundWidth,backgroundHeight);
+  }
 }

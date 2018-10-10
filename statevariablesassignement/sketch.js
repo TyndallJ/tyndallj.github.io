@@ -1,7 +1,8 @@
 // Mario Kart 64 Character Select
 // Tyndall Johnston
 // Date
-//
+// Interactive state state change assignment
+
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
@@ -16,7 +17,24 @@ let img, border;
 let x,y;
 let backgroundWidth = 1600;
 let backgroundHeight = 1200;
-let state;
+let state = 0;
+//every characters own variable = 0
+let mario = 0;
+let luigi = 0;
+let peach = 0;
+let toad = 0;
+let yoshi = 0;
+let dk = 0;
+let wario = 0;
+let bowser = 0;
+
+
+
+
+
+
+
+
 //Loading images
 function preload() {
   img = loadImage("assets/selectcharacter.png");
@@ -27,20 +45,33 @@ function preload() {
 function setup() {
   createCanvas(backgroundWidth, backgroundHeight);
   image(img, 0, 0, backgroundWidth, backgroundHeight);
-  state = 1;
 }
 
 function draw() {
-  findCharacter();
+  if (state === 0){
+    findCharacter();
+  }
+  else if (state === 1){
+    //imagechange of some sort
+    //create a variable for each character and let it = 0, and for everyones character when its clicked have it return the variable = 1
+    // then here have multiple if/ else if statements that will return different images for each character
+    // this should probably be done in its own function
+    if (mario === 1){
+      background(255);
+    }
+  }
 }
-
 
 //Loaction of Characters
 function findCharacter(){
+
   //Marios Location
   if (mouseX < width*0.275 && mouseX > width*0.07 && mouseY < height*0.58 && mouseY > height*0.255){
     image(border,119,315,322,380);
-    //Do i put my state change here for if mousePressed?
+    if (mouseIsPressed){
+      // make character variable = 1
+      mario = 1;
+    }
   }
   //Luigis Location
   else if (mouseX < width*0.492 && mouseX > width*0.29 && mouseY < height*0.58 && mouseY > height*0.255){

@@ -28,13 +28,6 @@ let dk = 0;
 let wario = 0;
 let bowser = 0;
 
-
-
-
-
-
-
-
 //Loading images
 function preload() {
   img = loadImage("assets/selectcharacter.png");
@@ -59,6 +52,29 @@ function draw() {
     if (mario === 1){
       background(255);
     }
+    else if (luigi === 1){
+      background(0);
+    }
+    else if (peach === 1){
+      background(100);
+    }
+    else if (toad === 1){
+      background(150);
+    }
+    else if (yoshi === 1){
+      background(200);
+    }
+    else if (dk === 1){
+      background(100, 0, 0);
+    }
+    else if (wario === 1){
+      background(150, 0, 0);
+    }
+    else if (bowser === 1){
+      background(200, 0, 0);
+    }
+
+
   }
 }
 
@@ -69,37 +85,65 @@ function findCharacter(){
   if (mouseX < width*0.275 && mouseX > width*0.07 && mouseY < height*0.58 && mouseY > height*0.255){
     image(border,119,315,322,380);
     if (mouseIsPressed){
-      // make character variable = 1
+      state = 1;
       mario = 1;
     }
   }
   //Luigis Location
   else if (mouseX < width*0.492 && mouseX > width*0.29 && mouseY < height*0.58 && mouseY > height*0.255){
     image(border,466,315,322,380);
+    if (mouseIsPressed){
+      state = 1;
+      luigi = 1;
+    }
   }
   //Peachs Location
   else if (mouseX < width*0.709 && mouseX > width*0.51 && mouseY < height*0.58 && mouseY > height*0.255){
     image(border,810,315,322,380);
+    if (mouseIsPressed){
+      state = 1;
+      peach = 1;
+    }
   }
   //Toads Location
   else if (mouseX < width*0.926 && mouseX > width*0.73 && mouseY < height*0.58 && mouseY > height*0.255){
     image(border,1154,315,322,380);
+    if (mouseIsPressed){
+      state = 1;
+      toad = 1;
+    }
   }
   //Yoshis Location
   else if (mouseX < width*0.275 && mouseX > width*0.07 && mouseY < height*0.93 && mouseY > height*0.60){
     image(border,119,725,322,380);
+    if (mouseIsPressed){
+      state = 1;
+      yoshi = 1;
+    }
   }
   //Donkey Kongs Location
   else if (mouseX < width*0.492 && mouseX > width*0.29 && mouseY < height*0.93 && mouseY > height*0.60){
     image(border,466,725,322,380);
+    if (mouseIsPressed){
+      state = 1;
+      dk = 1;
+    }
   }
   //Warios Location
   else if (mouseX < width*0.709 && mouseX > width*0.51 && mouseY < height*0.93 && mouseY > height*0.60){
     image(border,810,725,322,380);
+    if (mouseIsPressed){
+      state = 1;
+      wario = 1;
+    }
   }
   //Bowsers Location
   else if (mouseX < width*0.926 && mouseX > width*0.73 && mouseY < height*0.93 && mouseY > height*0.60){
     image(border,1154,725,322,380);
+    if (mouseIsPressed){
+      state = 1;
+      bowser = 1;
+    }
   }
   //If not on a character it keeps the background
   else{

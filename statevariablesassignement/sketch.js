@@ -6,19 +6,16 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
-//If state = 1 then have the player 1 border go over characters
-//If mouse is pressed on a character change state = 2 and show a different image of the character
-
-
-
-
 //Variables
+//image variables
 let img, border;
-let x,y;
+let marioimg, luigiimg, peachimg, toadimg;
+let yoshiimg, dkimg, warioimg, bowserimg;
+//canvas size
 let backgroundWidth = 1600;
 let backgroundHeight = 1200;
+//state & character state change variables
 let state = 0;
-//every characters own variable = 0
 let mario = 0;
 let luigi = 0;
 let peach = 0;
@@ -32,6 +29,14 @@ let bowser = 0;
 function preload() {
   img = loadImage("assets/selectcharacter.png");
   border = loadImage("assets/characterborder.png");
+  marioimg = loadImage("assets/marioimg.png");
+  luigiimg = loadImage("assets/luigiimg.png");
+  peachimg = loadImage("assets/peachimg.png");
+  toadimg = loadImage("assets/toadimg.png");
+  yoshiimg = loadImage("assets/yoshiimg.png");
+  dkimg = loadImage("assets/dkimg.png");
+  warioimg = loadImage("assets/warioimg.png");
+  bowserimg = loadImage("assets/bowserimg.png");
 }
 
 //Adding background
@@ -45,36 +50,33 @@ function draw() {
     findCharacter();
   }
   else if (state === 1){
-    //imagechange of some sort
-    //create a variable for each character and let it = 0, and for everyones character when its clicked have it return the variable = 1
-    // then here have multiple if/ else if statements that will return different images for each character
-    // this should probably be done in its own function
     if (mario === 1){
-      background(255);
-    }
+      image(marioimg, 0, 0, backgroundWidth, backgroundHeight);
+    }  
     else if (luigi === 1){
-      background(0);
+      image(luigiimg, 0, 0, backgroundWidth, backgroundHeight);
     }
     else if (peach === 1){
-      background(100);
+      image(peachimg, 0, 0, backgroundWidth, backgroundHeight);
     }
     else if (toad === 1){
-      background(150);
+      image(toadimg, 0, 0, backgroundWidth, backgroundHeight);
     }
     else if (yoshi === 1){
-      background(200);
+      image(yoshiimg, 0, 0, backgroundWidth, backgroundHeight);
     }
     else if (dk === 1){
-      background(100, 0, 0);
+      image(dkimg, 0, 0, backgroundWidth, backgroundHeight);
     }
     else if (wario === 1){
-      background(150, 0, 0);
+      image(warioimg, 0, 0, backgroundWidth, backgroundHeight);
     }
     else if (bowser === 1){
-      background(200, 0, 0);
+      image(bowserimg, 0, 0, backgroundWidth, backgroundHeight);
     }
-
-
+    else{
+      findCharacter();
+    }
   }
 }
 

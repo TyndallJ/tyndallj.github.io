@@ -6,14 +6,7 @@
 // Extra for Experts:
 // Made state changes for every character, made my own plyer 1 border
 
-//ADD SOUND TO PROJECT
-//ADD SOUND TO PROJECT
-//ADD SOUND TO PROJECT
-//ADD SOUND TO PROJECT
-//ADD SOUND TO PROJECT
-//ADD SOUND TO PROJECT
-//ADD SOUND TO PROJECT
-//ADD SOUND TO PROJECT
+
 
 //Variables
 //image variables
@@ -22,6 +15,9 @@ let marioimg, luigiimg, peachimg, toadimg;
 let yoshiimg, dkimg, warioimg, bowserimg;
 let mariobackimg, luigibackimg, peachbackimg, toadbackimg;
 let yoshibackimg, dkbackimg, wariobackimg, bowserbackimg;
+
+//sound variables
+let kartsound;
 //canvas size
 let backgroundWidth = 1600;
 let backgroundHeight = 1200;
@@ -38,6 +34,7 @@ let bowser = 0;
 
 //Loading images
 function preload() {
+  kartsound = loadSound("assets/mariokart.mp3");
   img = loadImage("assets/selectcharacter.png");
   border = loadImage("assets/characterborder.png");
   marioimg = loadImage("assets/marioimg.png");
@@ -62,6 +59,7 @@ function preload() {
 //Setting the screen size
 function setup() {
   createCanvas(backgroundWidth, backgroundHeight);
+  kartsound.loop();
 }
 ///////////////////////////////////////////////////////////////////////////////
 
